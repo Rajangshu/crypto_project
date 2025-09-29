@@ -1,0 +1,10 @@
+{
+  "v": 1,
+  "cipher": "AES-CBC",
+  "ts": 1759153578,
+  "salt_b64": "BKehgjDQUJjMrvT7JK6UnQ==",
+  "iv_b64": "qp4SB/iGdOV0PRvu6ByuFA==",
+  "ct_b64": "prg3x/2z/5DqwMf11iJtGrMkiiPetQg+3HqQook5uLZiwMCRt77GVgAPL66zMSV3psHOD6BdkoTMRrAigh6D1Q==",
+  "mac_alg": "HMAC-SHA256",
+  "mac": "7544c120474304565b619cbe53a0769190089b9db7847586a451d4934223536d"
+}
