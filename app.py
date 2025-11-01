@@ -187,19 +187,19 @@ st.markdown("""
 
 def init_session_state():
     """Initialize session state variables"""
-    
-    desktop_path = Path.home() / "Desktop"
-
-    envelopes_dir_path = desktop_path / "securetalk_envelopes"
-    decrypted_dir_path = desktop_path / "securetalk_decrypted"
-    
+    # For Streamlit Cloud: Use temp storage (ephemeral) or session state
     if 'envelopes_dir' not in st.session_state:
-        st.session_state.envelopes_dir = str(envelopes_dir_path)
-        envelopes_dir_path.mkdir(parents=True, exist_ok=True)
-    
+        # Use /tmp on cloud platforms, or temp directory
+        import tempfile
+        temp_dir = tempfile.gettempdir()
+        st.session_state.envelopes_dir = os.path.join(temp_dir, "securetalk_envelopes")
+        os.makedirs(st.session_state.envelopes_dir, exist_ok=True)
+
     if 'decrypted_dir' not in st.session_state:
-        st.session_state.decrypted_dir = str(decrypted_dir_path)
-        decrypted_dir_path.mkdir(parents=True, exist_ok=True)
+        import tempfile
+        temp_dir = tempfile.gettempdir()
+        st.session_state.decrypted_dir = os.path.join(temp_dir, "securetalk_decrypted")
+        os.makedirs(st.session_state.decrypted_dir, exist_ok=True)
 
 
 def display_header():
